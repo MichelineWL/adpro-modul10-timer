@@ -20,3 +20,8 @@ Ketika executor mulai menjalankan future, barulah muncul output seperti Michelin
 Jika terdapat delay seperti TimerFuture, task tersebut akan menyerahkan kontrol sementara dan dilanjutkan lagi setelah waktu tunggu selesai.
 Setelah delay selesai, eksekusi kembali dilanjutkan dan hasil seperti Micheline's Computer: done! dicetak.
 Ini menunjukkan bahwa Rust async bekerja berdasarkan prinsip tunda dan lanjut (pause-resume), bukan eksekusi serentak, dan sangat bergantung pada manajemen dari executor.
+ 
+Multiple spawn memungkinkan user menjadwalkan banyak task async sekaligus.
+Remove spawner (dengan drop(spawner)) memberi sinyal bahwa semua task sudah dijadwalkan, jadi executor boleh mulai menyelesaikan semua task yang ada lalu berhenti.
+Hasil : 
+![image](https://github.com/user-attachments/assets/3263384f-8f01-4614-a282-1a2fa8c3a73f)
